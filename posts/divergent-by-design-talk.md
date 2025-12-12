@@ -8,7 +8,7 @@ tags:
     - Talk
 ---
 
-<iframe class="youtube mb-8" src="https://www.youtube.com/embed/DpapogYWp0A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe class="youtube mb-8" src="https://www.youtube.com/embed/4aCMbED6BxQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 For the first time, I'm giving a behind-the-scenes view into how designers work at Booking.com. There's so much to talk about, so many angles. Too many choices! I had an idea, but it was blurry. I could only imagine how it would feel when I presented it to the world.
 
