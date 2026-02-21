@@ -9,11 +9,9 @@
   "images": {
     "logo": "/images/logo/logo.jpg",
     "favicon": "/images/favicon.png",
-    "twitter": "/images/meta/twitter.jpg",
     "og": "/images/meta/og.jpg"
   },
   "social_links": {
-    "twitter": "https://twitter.com/vladzinculescu",
     "linkedin": "https://www.linkedin.com/in/vladzinculescu/"
   },
   "language": "en",
