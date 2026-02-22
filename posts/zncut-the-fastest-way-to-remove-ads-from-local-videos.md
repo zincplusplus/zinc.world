@@ -6,21 +6,22 @@ excerpt: The fastest command line tool for removing ads from local videos. Frame
 tags:
   - blog
   - code
-  - oss
+  - ossposts/zncut-the-fastest-way-to-remove-ads-from-local-videos.md
+  
 ---
 
-I'm not saying you should use [yt-dlp](https://github.com/yt-dlp/yt-dlp) ( an open source tool that downloads YouTube videos) but if you do, pair it with [yt-cut](https://github.com/zincplusplus/yt-cut). It's the fastest command line tool for removing ads from local videos. It uses [SponsorBlock](https://sponsor.ajay.app/) to identify the segments automatically. And cuts precisely on the frame in under 10s.
+I'm not saying you should use [yt-dlp](https://github.com/yt-dlp/yt-dlp) ( an open source tool that downloads YouTube videos) but if you do, pair it with [zncut](https://github.com/zincplusplus/zncut). It's the fastest command line tool for removing ads from local videos. It uses [SponsorBlock](https://sponsor.ajay.app/) to identify the segments automatically. And cuts precisely on the frame in under 10s.
 
 Here's how I made it so fast.
 
 <p class="text-center">
-  <img src="/images/blog/yt-cut/hero.png"/>
+  <img src="/images/blog/zncut/hero.png"/>
 </p>
 
 Here's your video, 30 minutes, with an ad segment of 4 minutes. You have keyframes every 1 minute ( in reality they vary between 2-10 seconds).
 
 <p class="text-center">
-  <img src="/images/blog/yt-cut/encode-everything.png"/>
+  <img src="/images/blog/zncut/encode-everything.png"/>
 </p>
 
 If I'd cut on the lines using something like `ffmpeg` it takes my machine 1 minute of re-encoding for 1 minute of video. No matter how short the segment you want to remove is, you will have to reencode the whole video. Imagine doing this for a 2h podcast. **We can do better.**
@@ -32,12 +33,12 @@ Cutting on keyframes doesn't require re-encoding because keyframes are complete,
 That's why cutting on keyframes is super fast. We're talking 1-2seconds per video. But your segments won't align with the keyframes most of the times. So you have two strategies:
 
 <p class="text-center">
-  <img src="/images/blog/yt-cut/overcut.png"/>
+  <img src="/images/blog/zncut/overcut.png"/>
   Overcut and lose part of the content
 </p>
 
 <p class="text-center">
-  <img src="/images/blog/yt-cut/undercut.png"/>
+  <img src="/images/blog/zncut/undercut.png"/>
   Undercut and see up to 20s of ads.
 </p>
 
@@ -45,10 +46,10 @@ Both options are **fast** but their accuracy is **unacceptable**.
 
 ## Best of both worlds
 
-[yt-cut](https://github.com/zincplusplus/yt-cut) does something smarter. It breaks the video in 5 segments, all cut on keyframes for speed.
+[zncut](https://github.com/zincplusplus/zncut) does something smarter. It breaks the video in 5 segments, all cut on keyframes for speed.
 
 <p class="text-center">
-  <img src="/images/blog/yt-cut/yt-cut.png"/>
+  <img src="/images/blog/zncut/zncut.png"/>
 </p>
 
 - it keeps the green segments (1 and 5) as is;
@@ -58,8 +59,8 @@ Both options are **fast** but their accuracy is **unacceptable**.
 
 By combining the best of both worlds we spend 10s to process this video. We combine the speed of cutting on keyframes + accurate cut with re-encoding only between 2 keyframes. So no matter if you remove a segment from a 10 minute or 10h video the time is the same.
 
-## yt-cut
+## zncut
 
 Accurate cuts. Valid file. Almost no re-encoding. I'm sharing this because I built it, it works, and I'm proud of it.
 
-I've written it by hand as my first ever Python project. It's free and open sourced. Check out [yt-cut on Github](https://github.com/zincplusplus/yt-cut).
+I've written it by hand as my first ever Python project. It's free and open sourced. Check out [zncut on Github](https://github.com/zincplusplus/zncut).
