@@ -1,27 +1,26 @@
 ---
-title: The fastest way to remove ads from local videos
+title: zncut the fastest way to remove ads from local videos
 date: 2026-02-21
-featured_image: /images/blog/22/mar/mock-design-cover.png
+featured_image: /images/blog/zncut/hero-social.png
 excerpt: The fastest command line tool for removing ads from local videos. Frame-accurate cuts in under 10 seconds, no matter how long the video.
 tags:
   - blog
   - code
-  - ossposts/zncut-the-fastest-way-to-remove-ads-from-local-videos.md
-  
+  - ossposts
 ---
 
-I'm not saying you should use [yt-dlp](https://github.com/yt-dlp/yt-dlp) ( an open source tool that downloads YouTube videos) but if you do, pair it with [zncut](https://github.com/zincplusplus/zncut). It's the fastest command line tool for removing ads from local videos. It uses [SponsorBlock](https://sponsor.ajay.app/) to identify the segments automatically. And cuts precisely on the frame in under 10s.
+I'm not saying you should use [yt-dlp](https://github.com/yt-dlp/yt-dlp) ( an open source tool that downloads YouTube videos) but if you do, pair it with [zncut](https://github.com/zincplusplus/zncut). It's the fastest command line tool for removing ads from local videos. It's a wrapper around [ffmpeg](https://ffmpeg.org/) that uses [SponsorBlock](https://sponsor.ajay.app/) to identify the segments automatically and **cuts precisely on the frame in under 10s**.
 
 Here's how I made it so fast.
 
 <p class="text-center">
-  <img src="/images/blog/zncut/hero.png"/>
+  <img class="rounded-xl" src="/images/blog/zncut/hero.png"/>
 </p>
 
 Here's your video, 30 minutes, with an ad segment of 4 minutes. You have keyframes every 1 minute ( in reality they vary between 2-10 seconds).
 
 <p class="text-center">
-  <img src="/images/blog/zncut/encode-everything.png"/>
+  <img class="rounded-xl" src="/images/blog/zncut/encode-everything.png"/>
 </p>
 
 If I'd cut on the lines using something like `ffmpeg` it takes my machine 1 minute of re-encoding for 1 minute of video. No matter how short the segment you want to remove is, you will have to reencode the whole video. Imagine doing this for a 2h podcast. **We can do better.**
@@ -33,12 +32,12 @@ Cutting on keyframes doesn't require re-encoding because keyframes are complete,
 That's why cutting on keyframes is super fast. We're talking 1-2seconds per video. But your segments won't align with the keyframes most of the times. So you have two strategies:
 
 <p class="text-center">
-  <img src="/images/blog/zncut/overcut.png"/>
+  <img class="rounded-xl" src="/images/blog/zncut/overcut.png"/>
   Overcut and lose part of the content
 </p>
 
 <p class="text-center">
-  <img src="/images/blog/zncut/undercut.png"/>
+  <img class="rounded-xl" src="/images/blog/zncut/undercut.png"/>
   Undercut and see up to 20s of ads.
 </p>
 
@@ -49,7 +48,7 @@ Both options are **fast** but their accuracy is **unacceptable**.
 [zncut](https://github.com/zincplusplus/zncut) does something smarter. It breaks the video in 5 segments, all cut on keyframes for speed.
 
 <p class="text-center">
-  <img src="/images/blog/zncut/zncut.png"/>
+  <img class="rounded-xl" src="/images/blog/zncut/zncut.png"/>
 </p>
 
 - it keeps the green segments (1 and 5) as is;
