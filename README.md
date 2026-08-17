@@ -1,2 +1,2 @@
-# zinc.world
-Website for zinc.world
+# zincplusplus.com
+Website for zincplusplus.com
